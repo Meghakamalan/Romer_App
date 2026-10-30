@@ -1,0 +1,38 @@
+extends common/layout
+
+block content
+  if photo || wiki || geo
+    // Hero Section with Background Image
+    if photo
+      section.hero-section(style=`background-image: url('${photo.url}')`)
+        .hero-overlay
+          h1.hero-title= wiki ? wiki.title : title
+
+    // Wikipedia Summary Section
+    if wiki
+      section.about-section
+        .container
+          h2.section-heading About #{wiki.title}
+          p.description-text= wiki.description
+          if wiki.article
+            a.wiki-button(href=wiki.article, target="_blank") Read Full Article on Wikipedia
+
+    // geoapify Points of Interest Section
+    if geo && geo.places.length > 0
+      section.interest-section
+        .container
+          h2.section-heading Points of Interest
+          
+          .interest-grid
+            each item in geo.places
+              .interest-card
+                .interest-card-content
+                  span.interest-category= item.category
+                  h3.interest-title= item.name
+                  if item.address
+                    p.interest-address= item.address
+
+  else
+    .container.no-results
+      h2 No information found
+      p Try searching for a different city or destination.

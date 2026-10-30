@@ -1,0 +1,304 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f8f9fa;
+    color: #2b2b2b;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.main-content {
+    flex: 1;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* header and footer */
+.site-header {
+    background: #ffffff;
+    border-bottom: 1px solid #eaeaea;
+    padding: 18px 0;
+}
+
+.nav-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #916496;
+    text-decoration: none;
+    letter-spacing: -0.5px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 24px;
+}
+
+.nav-links a {
+    color: #916496;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+    color: #704A74;
+}
+
+.footer {
+    background: #ffffff;
+    border-top: 1px solid #eaeaea;
+    padding: 25px 0;
+    text-align: center;
+    color: #888888;
+    font-size: 0.88rem;
+}
+
+/* home page */
+.home-hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 100px 20px;
+    text-align: center;
+    background: linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%);
+}
+
+.hero-content {
+    max-width: 680px;
+    width: 100%;
+}
+
+.brand-title {
+    font-size: 3.8rem;
+    font-weight: 800;
+    color: #916496;
+    margin-bottom: 12px;
+    letter-spacing: -1.5px;
+}
+
+.tagline {
+    font-size: 1.3rem;
+    color: #826a85;
+    margin-bottom: 40px;
+    font-weight: 400;
+}
+
+.search-form {
+    margin-bottom: 30px;
+}
+
+.search-input-wrapper {
+    display: flex;
+    gap: 10px;
+    background: #ffffff;
+    padding: 8px;
+    border-radius: 50px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e1e4e8;
+}
+
+.search-input-wrapper input {
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 14px 24px;
+    font-size: 1rem;
+    border-radius: 50px;
+    color: #826a85;
+    background: transparent;
+}
+
+.search-input-wrapper button {
+    padding: 14px 32px;
+    border: none;
+    background: #916496;
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.search-input-wrapper button:hover {
+    background: #704A74;
+}
+
+/* trending destinations in the home page */
+.trending-destinations {
+    font-size: 0.9rem;
+    color: #888888;
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.trending-destinations a {
+    color: #826a85;
+    text-decoration: none;
+    font-weight: 600;
+    background: #ffffff;
+    padding: 5px 14px;
+    border-radius: 20px;
+    border: 1px solid #e0e0e0;
+    transition: all 0.2s ease;
+}
+
+.trending-destinations a:hover {
+    border-color: #916496;
+    background: #916496;
+    color: #ffffff;
+}
+
+/* result page hero section */
+.hero-section {
+    position: relative;
+    width: 100%;
+    height: 50vh;
+    min-height: 380px;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.35);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    text-align: center;
+    padding: 20px;
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    margin-bottom: 10px;
+}
+
+/* result page wikipedia section */
+.about-section {
+    padding: 60px 20px;
+    background-color: #ffffff;
+    text-align: center;
+}
+
+.section-heading {
+    font-size: 2rem;
+    color: #916496;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.description-text {
+    font-size: 1.1rem;
+    color: #555555;
+    max-width: 800px;
+    margin: 0 auto 30px auto;
+    line-height: 1.8;
+}
+
+.wiki-button {
+    display: inline-block;
+    padding: 12px 24px;
+    border: 1px solid #916496;
+    color: #916496;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.wiki-button:hover {
+    background-color: #916496;
+    color: #ffffff;
+}
+
+/* result page geoapify section */
+.interest-section {
+    padding: 60px 20px 80px 20px;
+    background-color: #f8f9fa;
+    text-align: center;
+}
+
+.interest-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 25px;
+    margin-top: 20px;
+}
+
+.interest-card {
+    background: #F4E3F6;
+    border-radius: 8px;
+    padding: 25px 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    border: 1px solid #F4E3F6;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.interest-card:hover {
+    transform: translateY(-5px);
+}
+
+.interest-category {
+    display: inline-block;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #76587a;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.interest-title {
+    font-size: 1.25rem;
+    color: #76587a;
+    margin-bottom: 10px;
+}
+
+.interest-address {
+    font-size: 0.88rem;
+    color: #666;
+    line-height: 1.4;
+}
+
+.no-results {
+    padding: 100px 0;
+    text-align: center;
+}

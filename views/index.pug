@@ -1,0 +1,24 @@
+extends common/layout
+
+block content
+  section.home-hero
+    .hero-content
+      h1.brand-title  Romer
+      p.tagline Discover any place in the world
+
+      form.search-form(action="/search" method="GET")
+        .search-input-wrapper
+          input(
+            type="text"
+            name="place"
+            placeholder="Search for a city or country"
+            required
+            autocomplete="off"
+          )
+          button(type="submit") Search
+
+      .trending-destinations
+        span Popular: 
+        a(href="/search?place=Paris") Paris
+        a(href="/search?place=Tokyo") Tokyo
+        a(href="/search?place=Rome") Rome

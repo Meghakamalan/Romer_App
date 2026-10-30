@@ -1,0 +1,14 @@
+doctype html
+html(lang="en")
+  head
+    title #{title} | Romer
+    link(rel="stylesheet" href="/css/styles.css")
+  body
+    include header
+          
+    main.main-content
+      block content
+
+    footer.footer
+      div.footer-container
+        p &copy; Copyright Romer, 2026.
