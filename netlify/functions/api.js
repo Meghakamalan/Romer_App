@@ -1,23 +1,19 @@
 import serverless from 'serverless-http';
 import express from 'express';
 import path from "path";
-import { fileURLToPath } from 'url';
 
-// Import your routes/components (adjust relative paths based on where netlify/functions/ is located)
+// Import your routes/components 
 import wikipedia from "../../components/wikipedia/wikipedia.js";
 import unsplash from '../../components/unsplash/unsplash.js';
 import geoapify from '../../components/geoapify/geoapify.js';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
 const app = express();
 
-// Point views and static directories relative to the root project folder
-app.set("views", path.join(__dirname, "../../views"));
+// Set views and static directories using process.cwd() for serverless safety
+app.set("views", path.join(process.cwd(), "views"));
 app.set("view engine", "pug");
 
-app.use(express.static(path.join(__dirname, "../../public")));
+app.use(express.static(path.join(process.cwd(), "public")));
 app.use(express.urlencoded({ extended: true }));
 
 // Home page
