@@ -5,15 +5,14 @@ import wikipedia from "./components/wikipedia/wikipedia.js";
 import unsplash from './components/unsplash/unsplash.js';
 import geoapify from './components/geoapify/geoapify.js';
 
-
-const __dirname = import.meta.dirname;
 const app = express();
 const PORT = process.env.PORT || 8888;
-// Set up view engine and static files
-app.set("views", path.join(__dirname, "views"));
+
+// Use process.cwd() for robust path resolution in both local and serverless environments
+app.set("views", path.join(process.cwd(), "views"));
 app.set("view engine", "pug");
 
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(process.cwd(), "public")));
 app.use(express.urlencoded({ extended: true }));
 
 // Home page
@@ -26,18 +25,15 @@ app.get("/search", async (req, res) => {
     const place = req.query.place;
 
     if (!place) {
-        // If no place is provided, redirect to home
         return res.redirect("/");
     }
 
     try {
-        // Run calls in parallel for optimal speed
         const [wikiData, photoData, geoData] = await Promise.all([
             wikipedia.getPlaceSummary(place),
             unsplash.getPlacePhoto(place),
             geoapify.getGeocodeAndPlaces(place)
         ]);
-        // Render the results page with the fetched data
         res.render("results", {
             title: place,
             wiki: wikiData,
@@ -49,5 +45,10 @@ app.get("/search", async (req, res) => {
         res.render("results", { title: place, wiki: null, photo: null, geo: null });
     }
 });
-// Start the server
-app.listen(PORT, () => console.log(`Server listening at http://localhost:${PORT}`));
+
+// Only start the listener if running locally (Netlify Serverless handles this via serverless-http)
+if (process.env.NODE_ENV !== 'production') {
+    app.listen(PORT, () => console.log(`Server listening at http://localhost:${PORT}`));
+}
+
+export default app;
